@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -29,9 +30,12 @@ const BlogIndex = ({ data, location }) => {
       <ol className='blogPosts'>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-
+          const image = getImage(post.frontmatter.hero_image)
           return (
             <li key={post.fields.slug}>
+              <div className='postImage'>
+                <GatsbyImage image={image} alt={post.frontmatter.hero_image_alt} />
+              </div>
               <article
                 className="post-list-item"
                 itemScope
@@ -82,6 +86,12 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          hero_image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          hero_image_alt
         }
       }
     }
