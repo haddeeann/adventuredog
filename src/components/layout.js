@@ -12,7 +12,6 @@ const Layout = ({ location, title, children }) => {
     header = (
       <header className="global-header">
         <Link className="header-link-home" to="/">
-          ho home
           {title}
         </Link>
       </header>
