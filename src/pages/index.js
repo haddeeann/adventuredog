@@ -36,19 +36,19 @@ const BlogIndex = ({ data, location }) => {
               <div className='postImage'>
                 <GatsbyImage image={image} alt={post.frontmatter.hero_image_alt} />
               </div>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
+              <header className='articleHeader'>
                   <h2>
                     <Link to={post.fields.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
                   <small>{post.frontmatter.date}</small>
-                </header>
+              </header>
+              <article
+                className="post-list-item"
+                itemScope
+                itemType="http://schema.org/Article"
+              >
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
