@@ -14,12 +14,11 @@ const BlogIndex = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          You've discovered an empty blog. It's a surprise to both of us. 
+          I've written a blog, so whatever you've done to get here...Maybe go someplace else now?
         </p>
+        <Bio />
       </Layout>
     )
   }
@@ -28,36 +27,44 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <ol className='blogPosts'>
-        {posts.map(post => {
+        {posts.map((post, index) => {
           const title = post.frontmatter.title || post.fields.slug
           const image = getImage(post.frontmatter.hero_image)
           return (
             <li key={post.fields.slug}>
-              <div className='postImage'>
-                <GatsbyImage image={image} alt={post.frontmatter.hero_image_alt} />
+              <div className='article'>
+                {index === 0 ? <h1>{siteTitle}</h1> : null}     
+                <div className='postImage'>
+                  <GatsbyImage image={image} alt={post.frontmatter.hero_image_alt} />
+                  <header className='articleHeader'>
+                    <h2>
+                      <Link to={post.fields.slug} itemProp="url">
+                        <span itemProp="headline">{title}</span>
+                      </Link>
+                    </h2>
+                    <small>{post.frontmatter.date}</small>
+                  </header>
+                </div>
+                {
+                  index !== 0 ? (
+                    <article
+                    className="post-list-item"
+                    itemScope
+                    itemType="http://schema.org/Article"
+                  >
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: post.frontmatter.description || post.excerpt,
+                        }}
+                        itemProp="description"
+                      />
+                    </section>
+                  </article>
+                  ) : (<></>)
+                }
+
               </div>
-              <header className='articleHeader'>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-              </header>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
             </li>
           )
         })}

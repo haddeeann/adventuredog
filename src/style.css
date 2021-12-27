@@ -1,35 +1,53 @@
 body {
     color: rgb(51,51,51);
     font-family: kepler-std,sans-serif;
-    position: relative;
 }
 
-.main-heading a {
+.body-wrapper {
+    margin: 20px;
+}
+
+.article h1 {
     text-decoration: none;
     text-transform: uppercase;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: rgb(51,51,51);
-    position: absolute;
-    top: 25px;
-    left: 50px;
 }
 
 .blogPosts {
     list-style-type: none;
-    padding: 0;
+    padding: 15px;
+}
+
+.blogPosts li {
+    margin-bottom: 25px;
+    padding: 25px;
 }
 
 .blogPosts li:nth-child(1) {
-    background-color: rgba(243, 243, 243, 0.75);
-    padding: 15vh 15px 15px 15px;
-    margin: 15px;
+    background-color: rgb(243, 243, 243);
+    padding-bottom: 45px;
+}
+
+.postImage {
+    position: relative;
+}
+
+.blogPosts li:nth-child(1) .articleHeader {
+    background-color: rgb(243, 243, 243);
+    padding: 15px;
+    width: 65%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .blogPosts li:not(:first-child) {
-    background-color: orange;
-    opacity: 0.95;
-    margin: 15px;
-    padding: 15px;
+    background-color: #f7f7f7;
+}
+
+.blogPosts li:not(:first-child) img {
+    width: 25%;
 }
 
 .blogPosts a {
@@ -37,10 +55,44 @@ body {
     color: rgb(51,51,51);
 }
 
-.postImage {
-    height: 70vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.top-secret {
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: -10px;
+    right: 0;
+    z-index: 3;
+    width: 100%;
+    height: 40px;
+}
+
+.left-secret {
+    background-color: #fff;
+    position: fixed;
+    left: -30px;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    width: 50px;
+}
+
+.right-secret {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -30px;
+    z-index: 4;
+    width: 50px;
+    height: 100%;
+}
+
+.bottom-secret {
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+    z-index: 2;
+    width: 100%;
+    height: 50px;
 }
