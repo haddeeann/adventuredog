@@ -6,7 +6,7 @@ hero_image_alt: "Frollicking Puppies"
 hero_image_credit_text: "Alvan Nee"
 hero_image_credit_link: "https://unsplash.com/@alvannee?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 ---
-October is a dog month! What a great time to celebrate a new furry best friend. If it’s time to take the plunge and get a new dog there are going to be some things you want to think about. First might be things like where to go for a dog? What kinds of breeds are best? How to train them. 
+October is dog adoption month! What a great time to celebrate a new furry best friend. If it’s time to take the plunge and get a new dog there are going to be some things you want to think about. First might be things like where to go for a dog? What kinds of breeds are best? How to train them. 
 
 A great place to start looking is your local animal shelter. You can get a feel for what kinds of dog you are looking for. Do you want a constant companion or more of a guard dog? Something the size that dwarfs a small child and cast shadows you can stand in? Or something you can fit in a purse to take to the movies?
 
