@@ -7,13 +7,13 @@ import Seo from "../components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `Dogs Adventure`
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <Seo title="Dog Adventure" />
         <p>
           You've discovered an empty blog. It's a surprise to both of us. 
           I've written a blog, so whatever you've done to get here...Maybe go someplace else now?
@@ -25,7 +25,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <Seo title="Dog Adventure" />
       <ol className='blogPosts'>
         {posts.map((post, index) => {
           const title = post.frontmatter.title || post.fields.slug
